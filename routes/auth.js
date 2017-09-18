@@ -1,11 +1,12 @@
+
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
-const path = require('path');
-const passport = require('passport');
-const debug = require('debug')("app:auth:local");
+const path = require("path");
+const passport = require("passport");
+const debug = require("debug")("app:auth:local");
 
-const router = require('express').Router();
+const router = require("express").Router();
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -35,35 +36,41 @@ router.post("/signup", (req, res, next) => {
       username,
       password: hashPass
     })
-    .save()
-    .then(user => res.redirect('/'))
-    .catch(e => res.render("auth/signup", { message: "Something went wrong" }));
-
+      .save()
+      .then(user => res.redirect("/"))
+      .catch(e =>
+        res.render("auth/signup", { message: "Something went wrong" })
+      );
   });
 });
 
-
-router.get('/login',(req,res) =>{
-  res.render('auth/login',{ message: req.flash("error") });
+router.get("/login", (req, res) => {
+  res.render("auth/login", { message: req.flash("error") });
 });
 
-router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
+    passReqToCallback: true
+  })
+);
 
-router.post('/logout',(req,res) =>{
+router.post("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
 
-
 router.get("/auth/facebook", passport.authenticate("facebook"));
-router.get("/auth/facebook/callback", passport.authenticate("facebook", {
-  successRedirect: "/",
-  failureRedirect: "/"
-}));
+router.get(
+  "/auth/facebook/callback",
+  passport.authenticate("facebook", {
+    successRedirect: "/",
+    failureRedirect: "/"
+  })
+);
+
 
 module.exports = router;
