@@ -15,7 +15,7 @@ const authRoutes = require('./routes/auth');
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/passport-local",{useMongoClient:true})
+mongoose.connect("mongodb://localhost/virtuseum",{useMongoClient:true})
         .then(()=> debug("connected to db!"));
 
 var app = express();
@@ -29,7 +29,7 @@ app.use(expressLayouts);
 app.use(flash());
 
 app.use((req,res,next) =>{
-  res.locals.title = "Auth example";
+  res.locals.title = "Virtuseum";
   next();
 });
 
