@@ -10,7 +10,9 @@ const passport = require("passport");
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
 
+const index = require('./routes/index');
 const authRoutes = require('./routes/auth');
+const loggedRoutes = require('./routes/loggedin')
 
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
@@ -43,6 +45,7 @@ app.use(session({
   })
 }));
 
+
 require('./passport/serializers');
 require('./passport/local');
 require('./passport/facebook');
@@ -57,10 +60,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use((req, res, next) => {
+  if (req.session.currentUser) {
+    res.locals.currentUserInfo = req.session.currentUser;
+    res.locals.isUserLoggedIn = true;
+  } else {
+    res.locals.isUserLoggedIn = false;
+  }
+
+  next();
+});
 
 app.use('/', authRoutes);
-app.get('/', (req,res) => res.render('index',{user:req.user}));
-
+app.use('/' , index);
+app.use('/' , loggedRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

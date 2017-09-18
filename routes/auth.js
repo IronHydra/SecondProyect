@@ -48,17 +48,16 @@ router.get('/login',(req,res) =>{
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/dashboard",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
 }));
 
-router.post('/logout',(req,res) =>{
+router.get('/logout',(req,res) =>{
   req.logout();
-  res.redirect("/");
+  res.redirect('/');
 });
-
 
 router.get("/auth/facebook", passport.authenticate("facebook"));
 router.get("/auth/facebook/callback", passport.authenticate("facebook", {

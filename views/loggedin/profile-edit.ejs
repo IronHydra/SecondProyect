@@ -1,0 +1,11 @@
+<a href="/">Go back</a>
+
+<form action="/<%= user._id %>/edit" method="POST">
+  <label for="username">Username</label>
+  <input type="text" id="name" name="name" value="<%= user.username %>">
+
+  <label for="description">Description</label>
+  <textarea type="text" name="description" id="description"><%= user.description %></textarea>
+
+  <button type="submit">Update Profile</button>
+</form>
