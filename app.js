@@ -70,7 +70,7 @@ app.get("/", (req, res) => res.render("index", { user: req.user }));
 
 
 //API
-app.get('/api/v1/xapp_token', function(req, res, next) {
+app.get('/api/v1/xapp_tokenn', function(req, res, next) {
   requested++
   res.send({
     "xapp_token": "foo-token" + requested,
