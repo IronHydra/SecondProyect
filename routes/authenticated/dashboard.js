@@ -2,15 +2,15 @@ const User = require("../../models/User");
 const router = require("express").Router();
 
 router.get("/dashboard", (req, res, next)=>{
-  res.render("loggedin/dashboard");
+  res.render("dashboard/dashboard");
 })
 
 router.get("/profile", (req, res, next)=>{
-  res.render("loggedin/profile" , {user : req.user})
+  res.render("dashboard/profile" , {user : req.user})
 });
 
 router.get("/profile/edit", (req, res, next)=>{
-  res.render("loggedin/profile-edit", {user : req.user})
+  res.render("dashboard/profile-edit", {user : req.user})
 })
 
 router.post('/:id/profile/edit', (req, res, next) => {
