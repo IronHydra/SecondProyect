@@ -6,7 +6,6 @@ router.get("/dashboard", (req, res, next)=>{
 })
 
 router.get("/profile", (req, res, next)=>{
-  console.log('eso vale'+req.user);
   res.render("loggedin/profile" , {user : req.user})
 });
 
