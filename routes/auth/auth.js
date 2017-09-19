@@ -1,5 +1,4 @@
-
-const User = require("../models/User");
+const User = require("../../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const path = require("path");
@@ -48,19 +47,16 @@ router.get("/login", (req, res) => {
   res.render("auth/login", { message: req.flash("error") });
 });
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: true,
-    passReqToCallback: true
-  })
-);
+router.post("/login", passport.authenticate("local", {
+  successRedirect: "/dashboard",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true
+}));
 
-router.post("/logout", (req, res) => {
+router.get('/logout',(req,res) =>{
   req.logout();
-  res.redirect("/");
+  res.redirect('/');
 });
 
 router.get("/auth/facebook", passport.authenticate("facebook"));

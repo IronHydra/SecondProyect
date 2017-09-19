@@ -1,4 +1,4 @@
-var artsyXapp = require("artsy-xapp");
+const artsyXapp = require("artsy-xapp");
 const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
@@ -11,18 +11,15 @@ const passport = require("passport");
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
 
+const index = require('./routes/index');
+const authRoutes = require('./routes/auth/auth');
+const loggedRoutes = require('./routes/authenticated/loggedin')
 
-
-const authRoutes = require("./routes/auth");
-
-const debug = require("debug")(
-  "app:" + path.basename(__filename).split(".")[0]
-);
+const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
 const mongoose = require("mongoose");
-mongoose
-  .connect("mongodb://localhost/Virtual-museum", { useMongoClient: true })
-  .then(() => debug("connected to db!"));
+mongoose.connect("mongodb://localhost/virtuseum",{useMongoClient:true})
+        .then(()=> debug("connected to db!"));
 
 var app = express();
 var requested = 0;
