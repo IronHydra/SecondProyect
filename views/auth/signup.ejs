@@ -3,12 +3,17 @@
 
 <form action="/signup" method="POST" id="form-container">
   <label for="username">Username</label>
+<<<<<<< HEAD
   <input id="username" type="text" name="username" placeholder="LeonardoDaVinci">
+=======
+  <input id="username" type="text" name="username" placeholder="JonSnow">
+>>>>>>> e6744244d790da6f3b924479029677ab85115fd0
   <br><br>
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
 
   <% if (typeof message !== "undefined") { %>
+<<<<<<< HEAD
     <div class="error-message"><%= message %></div>
   <% } %>
   <br><br>
@@ -19,4 +24,18 @@
     Do you already have an account?
     <a href="/login">Login</a>
   </p>
+=======
+    <div class="error-message">
+      <%= message %>
+    </div>
+    <% } %>
+      <br><br>
+
+      <button>Create account</button>
+
+      <p class="account-message">
+        Do you already have an account?
+        <a href="/login">Login</a>
+      </p>
+>>>>>>> e6744244d790da6f3b924479029677ab85115fd0
 </form>

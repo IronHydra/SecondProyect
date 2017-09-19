@@ -1,10 +1,11 @@
-const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const expressLayouts = require('express-ejs-layouts');
+var artsyXapp = require("artsy-xapp");
+const express = require("express");
+const path = require("path");
+const favicon = require("serve-favicon");
+const logger = require("morgan");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const passport = require("passport");
 const flash = require("connect-flash");
@@ -21,64 +22,77 @@ mongoose.connect("mongodb://localhost/virtuseum",{useMongoClient:true})
         .then(()=> debug("connected to db!"));
 
 var app = express();
+var requested = 0;
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.set('layout','layout');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+app.set("layout", "layout");
 app.use(expressLayouts);
 
 app.use(flash());
 
-app.use((req,res,next) =>{
-  res.locals.title = "Virtuseum";
+app.use((req, res, next) => {
+  res.locals.title = "Virtual Museum";
   next();
 });
 
-app.use(session({
-  secret: "our-passport-local-strategy-app",
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
+app.use(
+  session({
+    secret: "our-passport-local-strategy-app",
+    resave: true,
+    saveUninitialized: true,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 // 1 day
+    })
   })
-}));
+);
 
-
-require('./passport/serializers');
-require('./passport/local');
-require('./passport/facebook');
+require("./passport/serializers");
+require("./passport/local");
+require("./passport/facebook");
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use((req, res, next) => {
-  if (req.session.currentUser) {
-    res.locals.currentUserInfo = req.session.currentUser;
-    res.locals.isUserLoggedIn = true;
-  } else {
-    res.locals.isUserLoggedIn = false;
-  }
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/", authRoutes);
+app.get("/", (req, res) => res.render("index", { user: req.user }));
 
 
-  next();
+//API
+app.get('/api/v1/xapp_tokenn', function(req, res, next) {
+  requested++
+  res.send({
+    "xapp_token": "foo-token" + requested,
+    "expires_in": new Date(Date.now() + 2000).toISOString(),
+  });
+  lastReq = req;
 });
 
-app.use('/', authRoutes);
-app.use('/' , index);
-app.use('/' , loggedRoutes);
+artsyXapp.init(
+  {
+    url: "https://api.artsy.net", // defaults to process.env.ARTSY_URL
+    id: "807eab702f1caa0c9895", // defaults to process.env.ARTSY_ID
+    secret: "d498e8e9c01b48ca24243e6ae3903bae" // defaults to process.env.ARTSY_SECRET
+  },
+  function() {
+    app.locals.xappToken = artsyXapp.token;
+  }
+);
+artsyXapp.on("error", process.exit);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  var err = new Error("Not Found");
   err.status = 404;
   next(err);
 });
@@ -87,11 +101,11 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
 
 module.exports = app;
