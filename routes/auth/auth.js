@@ -1,9 +1,5 @@
-<<<<<<< HEAD:routes/auth/auth.js
-const User = require("../../models/User");
-=======
 
-const User = require("../models/User");
->>>>>>> e6744244d790da6f3b924479029677ab85115fd0:routes/auth.js
+const User = require("../../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const path = require("path");
@@ -52,7 +48,6 @@ router.get("/login", (req, res) => {
   res.render("auth/login", { message: req.flash("error") });
 });
 
-<<<<<<< HEAD:routes/auth/auth.js
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/dashboard",
   failureRedirect: "/login",
@@ -61,31 +56,8 @@ router.post("/login", passport.authenticate("local", {
 }));
 
 router.get('/logout',(req,res) =>{
-=======
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: true,
-    passReqToCallback: true
-  })
-);
-
-router.post("/logout", (req, res) => {
->>>>>>> e6744244d790da6f3b924479029677ab85115fd0:routes/auth.js
   req.logout();
   res.redirect('/');
 });
-
-router.get("/auth/facebook", passport.authenticate("facebook"));
-router.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", {
-    successRedirect: "/",
-    failureRedirect: "/"
-  })
-);
-
 
 module.exports = router;

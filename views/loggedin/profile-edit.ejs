@@ -1,6 +1,6 @@
 <a href="/">Go back</a>
 
-<form action="/profile/edit" method="POST">
+<form action="/<%= user._id %>/profile/edit" method="POST">
   <h2>Edit your profile</h2>
   <label for="username">Username</label>
   <input type="text" id="name" name="name" value="<%= user.username %>">
