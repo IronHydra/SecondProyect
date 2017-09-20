@@ -1,3 +1,4 @@
+
 const User = require("../../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -60,13 +61,9 @@ router.get('/logout',(req,res) =>{
 });
 
 router.get("/auth/facebook", passport.authenticate("facebook"));
-router.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", {
-    successRedirect: "/",
-    failureRedirect: "/"
-  })
-);
-
+router.get("/auth/facebook/callback", passport.authenticate("facebook", {
+  successRedirect: "/",
+  failureRedirect: "/"
+}));
 
 module.exports = router;
