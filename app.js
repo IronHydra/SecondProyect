@@ -13,7 +13,7 @@ const MongoStore = require("connect-mongo")(session);
 
 const index = require('./routes/index');
 const authRoutes = require('./routes/auth/auth');
-const loggedRoutes = require('./routes/authenticated/loggedin')
+const loggedRoutes = require('./routes/authenticated/dashboard')
 
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
