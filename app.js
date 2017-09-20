@@ -1,4 +1,4 @@
-const artsyXapp = require("artsy-xapp");
+
 const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
@@ -15,7 +15,11 @@ const {dbURL} = require('./config/db');
 
 const index = require('./routes/index');
 const authRoutes = require('./routes/auth/auth');
-const loggedRoutes = require('./routes/authenticated/dashboard')
+const loggedRoutes = require('./routes/authenticated/loggedin');
+const apiPeriod = require("./routes/authenticated/period");
+const apiPlace = require("./routes/authenticated/place");
+const apiCulture = require("./routes/authenticated/culture");
+
 
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
@@ -65,33 +69,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use("/", loggedRoutes); 
 app.use("/", authRoutes);
-app.use("/", loggedRoutes);
+app.use("/", apiPeriod);
+app.use("/", apiPlace);
+app.use("/", apiCulture);
 app.get("/", (req, res) => res.render("index", { user: req.user }));
-
-
-//API
-app.get('/api/v1/xapp_tokenn', function(req, res, next) {
-  requested++
-  res.send({
-    "xapp_token": "foo-token" + requested,
-    "expires_in": new Date(Date.now() + 2000).toISOString(),
-  });
-  lastReq = req;
-});
-
-artsyXapp.init(
-  {
-    url: "https://api.artsy.net", // defaults to process.env.ARTSY_URL
-    id: "807eab702f1caa0c9895", // defaults to process.env.ARTSY_ID
-    secret: "d498e8e9c01b48ca24243e6ae3903bae" // defaults to process.env.ARTSY_SECRET
-  },
-  function() {
-    app.locals.xappToken = artsyXapp.token;
-  }
-);
-artsyXapp.on("error", process.exit);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
