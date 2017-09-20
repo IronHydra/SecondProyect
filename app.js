@@ -10,6 +10,7 @@ const session = require("express-session");
 const passport = require("passport");
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
+const multer = require("multer")
 
 const index = require('./routes/index');
 const authRoutes = require('./routes/auth/auth');
