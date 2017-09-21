@@ -15,7 +15,7 @@ const {dbURL} = require('./config/db');
 
 const index = require('./routes/index');
 const authRoutes = require('./routes/auth/auth');
-const loggedRoutes = require('./routes/authenticated/loggedin');
+const loggedRoutes = require('./routes/authenticated/dashboard');
 const apiPeriod = require("./routes/authenticated/period");
 const apiPlace = require("./routes/authenticated/place");
 const apiCulture = require("./routes/authenticated/culture");
@@ -69,7 +69,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/", loggedRoutes); 
+app.use("/", loggedRoutes);
 app.use("/", authRoutes);
 app.use("/", apiPeriod);
 app.use("/", apiPlace);

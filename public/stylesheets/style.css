@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+#auth {
+  border: 2px black solid;
+}
