@@ -14,8 +14,8 @@ const multer = require("multer")
 
 const index = require('./routes/index');
 const authRoutes = require('./routes/auth/auth');
-const loggedRoutes = require('./routes/authenticated/loggedin');
-const apiPeriod = require("./routes/authenticated/period");
+const loggedRoutes = require('./routes/authenticated/dashboard');
+const apiArtist = require("./routes/authenticated/artist");
 const apiPlace = require("./routes/authenticated/place");
 const apiCulture = require("./routes/authenticated/culture");
 
@@ -70,17 +70,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", loggedRoutes); 
 app.use("/", authRoutes);
-app.use("/", apiPeriod);
+app.use("/", apiArtist);
 app.use("/", apiPlace);
 app.use("/", apiCulture);
 app.get("/", (req, res) => res.render("index", { user: req.user }));
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error("Not Found");
-  err.status = 404;
-  next(err);
-});
+
 
 // error handler
 app.use(function(err, req, res, next) {
