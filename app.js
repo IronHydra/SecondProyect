@@ -16,8 +16,8 @@ const index = require('./routes/index');
 const authRoutes = require('./routes/auth/auth');
 const loggedRoutes = require('./routes/authenticated/dashboard');
 const apiArtist = require("./routes/authenticated/artist");
-const apiPlace = require("./routes/authenticated/place");
-const apiCulture = require("./routes/authenticated/culture");
+const apiShows = require("./routes/authenticated/shows");
+const apiArtworks = require("./routes/authenticated/artworks");
 
 
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
@@ -71,8 +71,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", loggedRoutes); 
 app.use("/", authRoutes);
 app.use("/", apiArtist);
-app.use("/", apiPlace);
-app.use("/", apiCulture);
+app.use("/", apiShows);
+app.use("/", apiArtworks);
 app.get("/", (req, res) => res.render("index", { user: req.user }));
 
 

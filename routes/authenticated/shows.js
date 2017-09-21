@@ -8,12 +8,10 @@ var traverson = require("traverson"),
 traverson.registerMediaType(JsonHalAdapter.mediaType, JsonHalAdapter);
 api = traverson.from("https://api.artsy.net/api").jsonHal();
 
-
-
-router.get("/artist/:id", (req, res, next) => {
+router.get("/shows/:id", (req, res, next) => {
   api
     .newRequest()
-    .follow("artist")
+    .follow("shows")
     .withRequestOptions({
       headers: {
         "X-Xapp-Token": xappToken,
@@ -21,11 +19,10 @@ router.get("/artist/:id", (req, res, next) => {
       }
     })
     .withTemplateParameters({ id: req.params.id })
-    .getResource(function(error, artist) {
-      console.log(artist)
-      res.render ("artist",  {artist: artist})
-    });     
+    .getResource(function(error, shows) {
+      console.log(shows);
+      res.render("shows", { shows: shows });
+    });
 });
-
 
 module.exports = router;

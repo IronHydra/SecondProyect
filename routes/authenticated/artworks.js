@@ -10,10 +10,10 @@ api = traverson.from("https://api.artsy.net/api").jsonHal();
 
 
 
-router.get("/artist/:id", (req, res, next) => {
+router.get("/artwork/:id", (req, res, next) => {
   api
     .newRequest()
-    .follow("artist")
+    .follow("artworks")
     .withRequestOptions({
       headers: {
         "X-Xapp-Token": xappToken,
@@ -21,9 +21,9 @@ router.get("/artist/:id", (req, res, next) => {
       }
     })
     .withTemplateParameters({ id: req.params.id })
-    .getResource(function(error, artist) {
-      console.log(artist)
-      res.render ("artist",  {artist: artist})
+    .getResource(function(error, artworks) {
+      console.log(artworks)
+      res.render ("artworks",  {artwork: artworks})
     });     
 });
 
