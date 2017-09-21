@@ -1,15 +1,17 @@
-<a href="/">Go back</a>
+<div class="profile">
 
-<form action="/<%= user._id %>/profile/edit" method="POST" enctype="multipart/form-data">
-  <h2>Edit your profile</h2>
-  <label for="username">Username</label>
-  <input type="text" id="name" name="name" value="<%= user.username %>">
+  <form action="/<%= user._id %>/profile/edit" method="POST" enctype="multipart/form-data">
+    <h2>Edit your profile</h2>
+    <label for="username">Username</label>
+    <input type="text" id="name" name="name" value="<%= user.username %>">
 
-  <label for="description">Description</label>
-  <textarea type="text" name="description" id="description" value="<%= user.description %>"><%= user.description %></textarea>
+    <label for="description">Description</label>
+    <textarea type="text" name="description" id="description" value="<%= user.description %>"><%= user.description %></textarea>
 
-  <label for="image">Profile image</label>
-  <input type="file" name="image" id="image" value="<%= user.pic_path %>">
+    <label for="image">Profile image</label>
+    <input type="file" name="image" id="image" value="<%= user.pic_path %>">
 
-  <button type="submit">Update Profile</button>
-</form>
+    <button type="submit">Update Profile</button>
+    <a href="/">Go back</a>
+  </form>
+</div>
