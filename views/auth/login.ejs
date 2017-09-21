@@ -1,18 +1,24 @@
-<form action="/login" method="POST">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" name="username">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-  </div>
-  <% if (typeof message != "undefined") { %>
-    <div class="error-message"><%= message %></div>
-  <% } %>
-  <div>
-    <input type="submit" value="Log In">
-  </div>
-</form>
-
-<p>Don't have an account?<a href="/signup">Sign up</a></p>
+<div class="auth" id="login">
+  <h2>Login</h2>
+  <form action="/login" method="POST" class="login">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" name="username">
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" name="password">
+    </div>
+    <% if (typeof message != "undefined") { %>
+      <div class="error-message">
+        <%= message %>
+      </div>
+      <% } %>
+        <div>
+          <input type="submit" value="Log In">
+        </div>
+        <div>
+          <p>Don't have an account?<a href="/signup">Sign up</a></p>
+        </div>
+  </form>
+</div>

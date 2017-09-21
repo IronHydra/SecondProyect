@@ -10,6 +10,7 @@ const artistSchema = new Schema({
   hometown: String,
   location: String,
   nationality: String,
+  image: String
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });

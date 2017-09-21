@@ -11,6 +11,7 @@ const passport = require("passport");
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
 const multer = require("multer")
+const {dbURL} = require('./config/db');
 
 const index = require('./routes/index');
 const authRoutes = require('./routes/auth/auth');
@@ -23,7 +24,7 @@ const apiArtworks = require("./routes/authenticated/artworks");
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/virtuseum",{useMongoClient:true})
+mongoose.connect(dbURL,{useMongoClient:true})
         .then(()=> debug("connected to db!"));
 
 var app = express();
@@ -68,7 +69,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/", loggedRoutes); 
+app.use("/", loggedRoutes);
 app.use("/", authRoutes);
 app.use("/", apiArtist);
 app.use("/", apiShows);

@@ -6,3 +6,56 @@ body {
 a {
   color: #00B7FF;
 }
+
+.auth, .profile {
+  border: 2px black solid;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 120px;
+}
+
+.auth li {
+  list-style-type: none;
+  margin-right: 10%;
+}
+
+#signup {
+  padding: 25px;
+}
+
+#myMap {
+  height: 400px;
+  width: 85%;
+  border: 3px solid black;
+  margin: 50px;
+}
+
+#login {
+  padding-top: 10px;
+  width: 40%;
+  margin-top: 150px;
+}
+
+#login input {
+  margin: 5px;
+}
+
+.bar > .list {
+  margin-top: 10px;
+}
+
+.segment {
+  display: inline-block;
+  width: 180px;
+  height: 160px;
+  border: 2px black solid;
+}
+
+.segment a {
+  color: black;
+  position: relative;
+  left: 51px;
+  top: 60px;
+}

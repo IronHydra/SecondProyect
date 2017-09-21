@@ -5,7 +5,8 @@ const artworkSchema = new Schema ({
   title: String,
   category: String,
   medium: String,
-  date: Number
+  date: Number,
+  image: String
 })
 
 const artwork = mongoose.model("artwork", artworkSchema);
