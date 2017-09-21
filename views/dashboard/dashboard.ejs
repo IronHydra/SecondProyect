@@ -1,44 +1,38 @@
-
 <a href="/profile">Your profile</a>
 
-<h1>Period</h1>
-<form action="/search" method="POST">
-    <label for="keyword">Artists</label>
-    <input type="text" id="keyword" name="keyword">
+<form action="/search" method="POST" class="bar">
+  <h1>Artist</h1>
+  <label for="keyword">Artist</label>
+  <input type="text" id="keyword" name="keyword">
 
-    <button type="submit">Search</button>
-    <ul>
-        <li><a href="">Leonardo Da Vinci</a></li>
-        <li><a href="">Picasso</a></li>
-        <li><a href="">Warhol</a></li>
-        <li><a href="">Velazquez</a></li>
-        <li><a href="/artist-list">All artists</a></li>
-    </ul>
+  <button type="submit">Search</button>
+  <div class="list">
+    <div class="segment"><a href="/apiGuay/andy-warhol">Andy Warhol</a></div>
+    <div class="segment"><a href="/apiGuay/diego-velazquez">Diego Velázquez</a></div>
+    <div class="segment"><a href="/apiGuay/claude-monet">Claude Monet</a></div>
+    <div class="segment"><a href="/apiGuay/pablo-picasso">Pablo Picasso</a></div>
+    <div class="segment"><a href="/artist-list">All artists</a></div>
+  </div>
 </form>
 
-<h1>Artworks</h1>
-<form action="/search" method="POST">
-    <label for="keyword">Place</label>
-    <input type="text" id="keyword" name="keyword">
+<form action="/search" method="POST" class="bar">
+  <h1>Artwork</h1>
+  <label for="keyword">Culture</label>
+  <input type="text" id="keyword" name="keyword">
 
-    <button type="submit">Search</button>
-
-    <ul>
-        <li><a href="/placeholder-artwork">Placeholder art</a></li>
-        <li><a href="info/artwork/">Art 2</a></li>
-        <li><a href="info/artwork">Art 3</a></li>
-        <li><a href="info/artwork">Art 4</a></li>
-        <li><a href="/artwork-list">All artworks</a></li>
-    </ul>
+  <button type="submit">Search</button>
+  <div class="list">
+    <div class="segment"><a href="/info/culture/37528659">Spanish</a></div>
+    <div class="segment"><a href="/info/culture/37528029">Mexican</a></div>
+    <div class="segment"><a href="/info/culture/37527453">German</a></div>
+    <div class="segment"><a href="/info/culture/37527759">Italian</a></div>
+    <div class="segment"><a href="/artwork-list">All artworks</a></div>
+  </div>
 </form>
 
-<div id="myMap" style="height:400px;width:80%"></map>
+<div id=myMap></div>
 
-<a href="/logout">Log out</a>
-
-<script src="javascripts/main.js" type="text/javascript"></script>
-<script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcO2AkGhhieGdQsKZxsOa5Q8PLNw4B7gU&callback=startMap&libraries=places,visualization async defer">
-    </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9FY9pLHEn8aQa_Heiu1IiEzjKDXH7o7c" async defer></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+<a href="/logout">
+  Log out </a>

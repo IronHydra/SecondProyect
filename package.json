@@ -7,6 +7,7 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
+    "artsy": "^1.8.0",
     "bcrypt": "^1.0.3",
     "body-parser": "~1.17.1",
     "connect-flash": "^0.1.1",
@@ -26,7 +27,9 @@
     "passport-local": "^1.0.0",
     "restler": "^3.4.0",
     "serve-favicon": "~2.4.2",
-    "superagent": "^3.6.0"
+    "superagent": "^3.6.0",
+    "traverson": "^6.0.3",
+    "traverson-hal": "^6.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"

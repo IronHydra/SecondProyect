@@ -1,0 +1,34 @@
+<h1> <%= artist.name %> </h1>
+<hr>
+
+<h2>Biography:</h2>
+<h4> 
+    <%= artist.biography %> 
+</h4>
+
+<h2>Location:</h2>
+<h4><%= artist.location %></h4>
+
+<h2>Homewtown:</h2>
+<h4>
+    <%= artist.hometown %>
+</h4>
+
+<h2>Nationality:</h2>
+<h4>
+    <%= artist.nationality %>
+</h4>
+
+<h2>Gender:</h2>
+<h4>
+    <%= artist.gender %>
+</h4>
+
+<h2>Life span:</h2>
+<h4>
+    <%= artist.birthday  + "-" +  artist.deathday %>
+</h4>
+
+
+<h2>Artworks:</h2>
+<a href="<%= artist._links.artworks.href %>">artworks</a>

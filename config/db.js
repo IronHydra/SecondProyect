@@ -1,3 +1,3 @@
 module.exports = {
-  dbURL:"mongodb://localhost/virtuseum"
+ dbURL: "mongodb://localhost/virtuseum"
 }
