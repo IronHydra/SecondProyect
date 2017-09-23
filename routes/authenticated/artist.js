@@ -11,6 +11,26 @@ api = traverson.from("https://api.artsy.net/api").jsonHal();
 
 
 router.get("/artist/:id", (req, res, next) => {
+
+  const content = [];
+  for  (i=0;i<10 ; i++ ){
+    api
+      .newRequest()
+      .follow("artist")
+      .withRequestOptions({
+        headers: {
+          "X-Xapp-Token": xappToken,
+          Accept: "application/vnd.artsy-v2+json"
+        }
+      })
+      .withTemplateParameters({ id: req.params.id })
+      .getResource(function(error, artist) {
+        content.push (artist)
+        res.render("artist", { artist: artist });
+      }); 
+              res.render("artist", { artist: content });
+
+  }
   api
     .newRequest()
     .follow("artist")
