@@ -57,21 +57,23 @@ router.get("/artists", (req, res, next) => {
 
 
 
-// router.get("/artist-list",(req,res,next)=>{
-//   console.log("entro a api entero");
-//   api
-//     .newRequest()
-//     .follow("artist")
-//     .withRequestOptions({
-//       headers: {
-//         "X-Xapp-Token": xappToken,
-//         Accept: "application/vnd.artsy-v2+json"
-//       }
-//     })
-//     .getResource(function(error, artist){
-//       console.log(artist);
-//       res.render("art-info/artist-list", {artist: api._embedded.artists})
-//     });
-// });
+router.get("/example",(req,res,next)=>{
+  api2 = traverson.from(`https://api.artsy.net/api/search?q=${req.query.search}`).jsonHal();
+  console.log(req.query.search);
+  api2
+    .newRequest()
+    .withRequestOptions({
+      headers: {
+        "X-Xapp-Token": xappToken,
+        Accept: "application/vnd.artsy-v2+json"
+      }
+    })
+    .withTemplateParameters({
+      name: ""
+    })
+    .getResource(function(error, artist){
+      console.log(artist._embedded.results[4]);
+    });
+});
 
 module.exports = router;
