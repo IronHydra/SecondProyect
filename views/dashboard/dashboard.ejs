@@ -1,31 +1,33 @@
 <a href="/profile">Your profile</a>
 
 <h1>Artist</h1>
-<form action="/search" method="POST">
+<form action="/search" method="POST" class="bar">
     <label for="keyword">Artist</label>
     <input type="text" id="keyword" name="keyword">
 
-    <button type="submit">Search</button>
+    <button type="submit" id="artist-search">Search</button>
     <ul>
-        <li><a href="/artist/andy-warhol">Andy Warhol</a></li>
-        <li><a href="/artist/diego-velazquez">Diego Velázquez</a></li>
-        <li><a href="/artist/claude-monet">Claude Monet</a></li>
-        <li><a href="/artist/pablo-picasso">Pablo Picasso</a></li>
+        <div class="segment"><a href="/artist/andy-warhol">Andy Warhol</a></div>
+        <div class="segment"><a href="/artist/diego-velazquez">Diego Velázquez</a></div>
+        <div class="segment"><a href="/artist/claude-monet">Claude Monet</a></div>
+        <div class="segment"><a href="/artist/pablo-picasso">Pablo Picasso</a></div>
+        <div class="segment all"><a href="/artists">All artists</a></div>
     </ul>
 </form>
 
 <h1>Artworks</h1>
-<form action="/search" method="POST">
+<form action="/search" method="POST" class="bar">
     <label for=artworks/</label>
     <input type="text" id="keyword" name="keyword">
 
-    <button type="submit">Search</button>
+    <button type="submit" id="artwork-search">Search</button>
 
     <ul>
-        <li><a href="/artwork/javier-marin-en-blanco-segunda-version">Javier Marin</a></li> 
-        <li><a href="/artwork/diego-velazquez-portrait-of-a-knight">Diego Velázquez</a></li>
-        <li><a href="/artwork/pablo-picasso-broc-et-verre">Pablo Picasso</a></li>
-        <li><a href="/artwork/andy-warhol-four-marilyns-reversal-series-2">Andy Warhol</a></li>
+        <div class="segment"><a href="/artwork/javier-marin-en-blanco-segunda-version">Javier Marin</a></div>
+        <div class="segment"><a href="/artwork/diego-velazquez-portrait-of-a-knight">Diego Velázquez</a></div>
+        <div class="segment"><a href="/artwork/pablo-picasso-broc-et-verre">Pablo Picasso</a></div>
+        <div class="segment"><a href="/artwork/andy-warhol-four-marilyns-reversal-series-2">Andy Warhol</a></div>
+        <div class="segment all"><a href="/artwork-list">All artists</a></div>
     </ul>
 </form>
 
@@ -37,10 +39,10 @@
     <button type="submit">Search</button>
 
     <ul>
-        <li><a href="/shows/4ea19ee97bab1a0001001908">Avenue des Gobelins</a></li>
-        <li><a href="/shows/">Mexican</a></li>
-        <li><a href="/shows/">German</a></li>
-        <li><a href="/shows/">Italian</a></li>
+        <div><a href="/shows/4ea19ee97bab1a0001001908">Avenue des Gobelins</a></div>
+        <div><a href="/shows/">Mexican</a></div>
+        <div><a href="/shows/">German</a></div>
+        <div><a href="/shows/">Italian</a></div>
     </ul>
 </form>
 

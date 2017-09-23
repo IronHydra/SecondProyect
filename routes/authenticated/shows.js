@@ -9,6 +9,7 @@ traverson.registerMediaType(JsonHalAdapter.mediaType, JsonHalAdapter);
 api = traverson.from("https://api.artsy.net/api").jsonHal();
 
 router.get("/shows/:id", (req, res, next) => {
+  console.log('entro a apiShows');
   api
     .newRequest()
     .follow("shows")

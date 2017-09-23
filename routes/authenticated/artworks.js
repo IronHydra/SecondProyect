@@ -11,6 +11,7 @@ api = traverson.from("https://api.artsy.net/api").jsonHal();
 
 
 router.get("/artwork/:id", (req, res, next) => {
+  console.log('entro a apiArtwork');
   api
     .newRequest()
     .follow("artworks")
@@ -24,7 +25,7 @@ router.get("/artwork/:id", (req, res, next) => {
     .getResource(function(error, artworks) {
       console.log(artworks)
       res.render ("artworks",  {artwork: artworks})
-    });     
+    });
 });
 
 
