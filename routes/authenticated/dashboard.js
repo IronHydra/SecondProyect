@@ -11,7 +11,7 @@ router.get("/profile", (req, res, next)=>{
   res.render("dashboard/profile" , {user : req.user})
 });
 
-router.get("/profile/edit", (req, res, next)=>{
+router.get("/profile-edit", (req, res, next)=>{
   res.render("dashboard/profile-edit", {user : req.user})
 })
 
