@@ -25,10 +25,14 @@ router.get("/artist/:id", (req, res, next) => {
     .getResource(function(error, artist) {
       console.log(artist)
       res.render("artist", {
-        artist: artist
+        artist: artist,
       })
     });
 });
+
+router.post("/artist",(req, res, next)=>{
+  
+})
 
 router.get("/search",(req,res,next)=>{
   api2 = traverson.from(`https://api.artsy.net/api/search?q=${req.query.search}`).jsonHal();
