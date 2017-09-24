@@ -1,11 +1,17 @@
 <a href="/profile">Your profile</a>
 
+<form class="" action="/search" method="get">
+    <label for="search">Search:</label>
+    <input type="text" name="search" value="">
+    <input type="submit">
+</form>
+
 <h1>Artist</h1>
-<form action="/search" method="POST" class="bar">
+<!-- <form action="/artists" method="get" class="bar">
     <label for="keyword">Artist</label>
     <input type="text" id="keyword" name="keyword">
-
     <button type="submit" id="artist-search">Search</button>
+</form> -->
     <ul>
         <div class="segment"><a href="/artist/andy-warhol">Andy Warhol</a></div>
         <div class="segment"><a href="/artist/diego-velazquez">Diego Velázquez</a></div>
@@ -13,20 +19,8 @@
         <div class="segment"><a href="/artist/pablo-picasso">Pablo Picasso</a></div>
         <div class="segment all"><a href="/artists">All artists</a></div>
     </ul>
-</form>
-
-<form class="" action="/example" method="get">
-<input type="text" name="search" value="">
-<input type="submit" >
-</form>
-
 
 <h1>Artworks</h1>
-<form action="/search" method="POST" class="bar">
-    <label for=artworks/</label>
-    <input type="text" id="keyword" name="keyword">
-
-    <button type="submit" id="artwork-search">Search</button>
 
     <ul>
         <div class="segment"><a href="/artwork/javier-marin-en-blanco-segunda-version">Javier Marin</a></div>
@@ -38,17 +32,12 @@
 </form>
 
 <h1>Shows</h1>
-<form action="/search" method="POST">
-    <label for="keyword">Culture</label>
-    <input type="text" id="keyword" name="keyword">
-
-    <button type="submit">Search</button>
 
     <ul>
-        <div><a href="/shows/4ea19ee97bab1a0001001908">Avenue des Gobelins</a></div>
-        <div><a href="/shows/">Mexican</a></div>
-        <div><a href="/shows/">German</a></div>
-        <div><a href="/shows/">Italian</a></div>
+        <div class="segment"><a href="/shows/4ea19ee97bab1a0001001908">Avenue</a></div>
+        <div class="segment"><a href="/shows/">Mexican</a></div>
+        <div class="segment"><a href="/shows/">German</a></div>
+        <div class="segment"><a href="/shows/">Italian</a></div>
     </ul>
 </form>
 

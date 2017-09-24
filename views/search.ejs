@@ -1,0 +1,51 @@
+<h1>  Results By Artist: </h1>
+<h2>
+    <% results.forEach( result => { %>
+        <% if(result.og_type == "artist") {%>    
+            <p> <%=  result.title %> </p>
+            <p> <%=  result.title_links%> </p> 
+            <% }%> 
+            <%}) %>    
+        </h2>
+        <hr>
+        
+        <h1> Results By Show: </h1>
+        <h2>
+            <% results.forEach( result => { %>
+                <% if(result.og_type == "show") {%>
+                    <p>
+                        <%=  result.title %>
+                    </p>
+                    <% } %>
+                        <%}) %>
+        </h2>
+        <hr>
+
+        <h1> Results By City: </h1>
+        <h2>
+            <% results.forEach( result => { %>
+                <% if(result.og_type == "city") {%>
+                    <p>
+                        <%=  result.title %>
+                    </p>    
+            <% } %>
+                <%}) %>
+</h2>                
+<hr>
+
+<h1> Results By Article: </h1>
+<h2>
+    <% results.forEach( result => { %>
+        <% if(result.og_type == "article") {%>
+            <p>
+                <%=  result.title %>
+            </p>    
+            <h4>
+                <%=  result.description %>
+            </h4>    
+            <% } %>
+                <%}) %>
+</h2>                
+
+
+
