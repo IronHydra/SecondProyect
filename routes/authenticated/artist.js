@@ -64,27 +64,3 @@ router.get("/search",(req,res,next)=>{
 });
 
 module.exports = router;
-
-// router.get("/artists", (req, res, next) => {
-
-//     api
-//       .newRequest()
-//       .follow("artist")
-//       .withRequestOptions({
-//         headers: {
-//           "X-Xapp-Token": xappToken,
-//           Accept: "application/vnd.artsy-v2+json"
-//         }
-//       })
-//       .withTemplateParameters({
-//         name: req.query.keyword
-//       })
-//       .getResource(function(error, artist) {
-//         console.log(artist._embedded.artists);
-//           res.render("artists", {
-//                                   artists: artist._embedded.artists
-//                                 });
-
-//       });
-
-// });

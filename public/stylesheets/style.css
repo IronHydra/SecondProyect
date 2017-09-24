@@ -1,20 +1,31 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+<<<<<<< HEAD
   /*background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/10/Night-city-wallpaper-blurry-cityscape-rain-unsharp-blurred.jpg");
   background-size: cover;
   background-repeat: no-repeat*/
+=======
+  padding: 0;
+  margin: 0;
+}
+
+
+.auth  {
+  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/10/Night-city-wallpaper-blurry-cityscape-rain-unsharp-blurred.jpg");
+  background-size: cover;
+>>>>>>> b3d45de70e563d086fc2d0c43ae5de195aac7a1d
 }
 
 a {
-  color: #00B7FF;
+  color: white;
 }
 
 .auth, .profile {
-    color: black;
-    background-color: white;
-    opacity: 0.5;
-    border-radius: 25px;
+  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/10/Night-city-wallpaper-blurry-cityscape-rain-unsharp-blurred.jpg");
+  background-size: cover;
+  color: white;
+  background-color: white;
+  border-radius: 25px;
   padding: 10px;
   width: 50%;
   text-align: center;
@@ -57,23 +68,111 @@ a {
   width: 180px;
   height: 160px;
   border: 2px black solid;
-  /* background-image: url("http://www.wallpaper-box.com/smartphone/wp-content/uploads/2015/02/wallpaperbox1384.jpg");
-  background-size: cover; */
 }
 
 .segment a {
-  color: red;
+  color: black;
   position: relative;
   left: 51px;
   top: 60px;
   font-size: 100%;
 }
 
+#warhol{
+  background-image: url("http://www.vomb.com.ar/wp-content/uploads/Andy-Warhol-1426x704.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#velazquez {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Diego_Vel%C3%A1zquez_Autorretrato_45_x_38_cm_-_Colecci%C3%B3n_Real_Academia_de_Bellas_Artes_de_San_Carlos_-_Museo_de_Bellas_Artes_de_Valencia.jpg/220px-Diego_Vel%C3%A1zquez_Autorretrato_45_x_38_cm_-_Colecci%C3%B3n_Real_Academia_de_Bellas_Artes_de_San_Carlos_-_Museo_de_Bellas_Artes_de_Valencia.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#monet {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Claude_Monet_1899_Nadar_crop.jpg/220px-Claude_Monet_1899_Nadar_crop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#picasso {
+  background-image: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMTgyMzYyNDY1NF5BMl5BanBnXkFtZTYwNjkzOTA3._V1_.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#marin {
+  background-image: url("http://www.artnet.com/WebServices/images/ll797255llgNFn72CfDrCWQFHPKAD/javier-marin-cabeza-mirella-ii.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#diego {
+  background-image: url("https://www.artble.com/imgs/4/b/6/425915/prince_baltasar_carlos_on_horseback.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#pablo {
+  background-image: url("http://www.themost10.com/wp-content/uploads/2012/03/Girl-Before-A-Mirror-By-Pablo-Picasso.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#andy {
+  background-image: url("https://upload.wikimedia.org/wikipedia/en/9/95/Warhol-Campbell_Soup-1-screenprint-1968.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#paris {
+  background-image: url("http://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1444253482/DG2015-paris.jpg?itok=XH81cBH9");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#newYork {
+  background-image: url("https://www.holidayguru.es/wp-content/uploads/2016/11/Time-Square-New-York-City-iStock-487537456-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#london {
+  background-image: url("https://london.newplacestobe.com/wp-content/uploads/sites/5/2017/02/london.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#berlin {
+  background-image: url("https://www.berlin-tours.es/images/buendia/slider/01-berlin-buendia-tours.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.search-block {
+  background-color: white;
+  width: 60%;
+  height: 90%;
+  position: relative;
+  left: 20%;
+  opacity: 0.7;
+}
+
 .search-block a {
   color: red;
 }
 
-#profile-img {
-  height: 400px;
-  width: 40%;
+.dashboardAll, .searchAll {
+  background-image: url("https://yalealumnimagazine.com/uploads/images/3100031/1355852479/YUAG_rohtko.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+}
+
+.link {
+  background-color: black;
+  background-size: cover;
 }
