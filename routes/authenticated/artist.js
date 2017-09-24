@@ -72,7 +72,6 @@ router.get("/search",(req,res,next)=>{
     })
     .getResource(function(error, result){
       console.log(Object.values(result._embedded.results[0]._links.permalink)[0]);
-      console.log(result._embedded.results[0].title_links);
       res.render("search", { 
         results: result._embedded.results
       });

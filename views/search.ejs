@@ -3,7 +3,7 @@
     <% results.forEach( result => { %>
         <% if(result.og_type == "artist") {%>    
             <p> <%=  result.title %> </p>
-            <p> <%=  result.title_links%> </p> 
+            <a href="<%=  Object.values(result._links.permalink) %>">Click here</a>
             <% }%> 
             <%}) %>    
         </h2>
@@ -16,6 +16,7 @@
                     <p>
                         <%=  result.title %>
                     </p>
+                    <a href="<%=  Object.values(result._links.permalink) %>">Click here</a>
                     <% } %>
                         <%}) %>
         </h2>
@@ -27,7 +28,8 @@
                 <% if(result.og_type == "city") {%>
                     <p>
                         <%=  result.title %>
-                    </p>    
+                    </p>
+                    <a href="<%=  Object.values(result._links.permalink) %>">Click here</a>
             <% } %>
                 <%}) %>
 </h2>                
@@ -42,7 +44,8 @@
             </p>    
             <h4>
                 <%=  result.description %>
-            </h4>    
+            </h4>
+            <a href="<%=  Object.values(result._links.permalink) %>">Click here</a>
             <% } %>
                 <%}) %>
 </h2>                
