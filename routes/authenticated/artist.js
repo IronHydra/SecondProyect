@@ -30,6 +30,31 @@ router.get("/artist/:id", (req, res, next) => {
     });
 });
 
+router.get("/search",(req,res,next)=>{
+  api2 = traverson.from(`https://api.artsy.net/api/search?q=${req.query.search}`).jsonHal();
+  console.log(req.query.search);
+  api2
+    .newRequest()
+    .withRequestOptions({
+      headers: {
+        "X-Xapp-Token": xappToken,
+        Accept: "application/vnd.artsy-v2+json"
+      }
+    })
+    .withTemplateParameters({
+      name: ""
+    })
+    .getResource(function(error, result){
+      console.log(Object.values(result._embedded.results[0]._links.permalink)[0]);
+      console.log(result._embedded.results[0].title_links);
+      res.render("search", {
+        results: result._embedded.results
+      });
+    });
+});
+
+module.exports = router;
+
 // router.get("/artists", (req, res, next) => {
 
 //     api
@@ -51,32 +76,5 @@ router.get("/artist/:id", (req, res, next) => {
 //                                 });
 
 //       });
-  
+
 // });
-
-
-
-router.get("/search",(req,res,next)=>{
-  api2 = traverson.from(`https://api.artsy.net/api/search?q=${req.query.search}`).jsonHal();
-  console.log(req.query.search);
-  api2
-    .newRequest()
-    .withRequestOptions({
-      headers: {
-        "X-Xapp-Token": xappToken,
-        Accept: "application/vnd.artsy-v2+json"
-      }
-    })
-    .withTemplateParameters({
-      name: ""
-    })
-    .getResource(function(error, result){
-      console.log(Object.values(result._embedded.results[0]._links.permalink)[0]);
-      console.log(result._embedded.results[0].title_links);
-      res.render("search", { 
-        results: result._embedded.results
-      });
-    });
-});
-
-module.exports = router;

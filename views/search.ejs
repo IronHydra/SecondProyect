@@ -1,51 +1,63 @@
-<h1>  Results By Artist: </h1>
+<div class="search-block">
+  <h1>  Results By Artist: </h1>
+  <h2>
+      <% results.forEach( result => { %>
+          <% if(result.og_type == "artist") {%>
+              <a href="<%=  Object.values(result._links.permalink)%>"> <%=  result.title %> </a>
+              <button>Send to favourites</button>
+              <br></br>
+              <% }%>
+              <%}) %>
+          </h2>
+</div>
+<hr>
+
+<div class="search-block">
+<h1> Results By Show: </h1>
 <h2>
-    <% results.forEach( result => { %>
-        <% if(result.og_type == "artist") {%>    
-            <p> <%=  result.title %> </p>
-            <p> <%=  result.title_links%> </p> 
-            <% }%> 
-            <%}) %>    
-        </h2>
-        <hr>
-        
-        <h1> Results By Show: </h1>
-        <h2>
             <% results.forEach( result => { %>
                 <% if(result.og_type == "show") {%>
-                    <p>
+                    <a href="<%=  Object.values(result._links.permalink)%>">
                         <%=  result.title %>
-                    </p>
+                    </a>
+                    <br></br>
                     <% } %>
                         <%}) %>
         </h2>
-        <hr>
-
-        <h1> Results By City: </h1>
-        <h2>
-            <% results.forEach( result => { %>
-                <% if(result.og_type == "city") {%>
-                    <p>
-                        <%=  result.title %>
-                    </p>    
-            <% } %>
-                <%}) %>
-</h2>                
+</div>
 <hr>
 
+<div class="search-block">
+<h1> Results By City: </h1>
+<h2>
+            <% results.forEach( result => { %>
+                <% if(result.og_type == "city") {%>
+                    <a href="<%=  Object.values(result._links.permalink)%>">
+                        <%=  result.title %>
+                    </a>
+                    <br></br>
+            <% } %>
+                <%}) %>
+</h2>
+</div>
+<hr>
+
+<div class="search-block">
 <h1> Results By Article: </h1>
 <h2>
     <% results.forEach( result => { %>
         <% if(result.og_type == "article") {%>
-            <p>
+            <a href="<%=  Object.values(result._links.permalink)%>">
                 <%=  result.title %>
-            </p>    
+            </a>
+            <br></br>
             <h4>
                 <%=  result.description %>
-            </h4>    
+            </h4>
             <% } %>
                 <%}) %>
-</h2>                
+</h2>
+</div>
 
-
-
+<a href="/dashboard">Go to dashboard</a>
+<a href="/profile">Go to profile</a>

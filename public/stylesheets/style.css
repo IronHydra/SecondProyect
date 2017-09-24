@@ -61,9 +61,13 @@ a {
 }
 
 .segment a {
-  color: white;
+  color: red;
   position: relative;
   left: 51px;
   top: 60px;
   font-size: 100%;
+}
+
+.search-block a {
+  color: red;
 }
