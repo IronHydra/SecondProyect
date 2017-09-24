@@ -1,54 +1,65 @@
-<h1>  Results By Artist: </h1>
+<div class="searchAll">
+<div class="search-block">
+  <h1>  Results By Artist: </h1>
+  <h2>
+      <% results.forEach( result => { %>
+          <% if(result.og_type == "artist") {%>
+              <a href="<%=  Object.values(result._links.permalink)%>"> <%=  result.title %> </a>
+              <button>Send to favourites</button>
+              <br></br>
+              <% }%>
+              <%}) %>
+          </h2>
+</div>
+<hr>
+
+<div class="search-block">
+<h1> Results By Show: </h1>
 <h2>
     <% results.forEach( result => { %>
-        <% if(result.og_type == "artist") {%>    
+        <% if(result.og_type == "show") {%>    
             <p> <%=  result.title %> </p>
             <a href="<%=  Object.values(result._links.permalink) %>">Click here</a>
             <% }%> 
             <%}) %>    
         </h2>
         <hr>
-        
-        <h1> Results By Show: </h1>
-        <h2>
-            <% results.forEach( result => { %>
-                <% if(result.og_type == "show") {%>
-                    <p>
-                        <%=  result.title %>
-                    </p>
-                    <a href="<%=  Object.values(result._links.permalink) %>">Click here</a>
-                    <% } %>
-                        <%}) %>
-        </h2>
-        <hr>
 
-        <h1> Results By City: </h1>
-        <h2>
+
+<div class="search-block">
+<h1> Results By City: </h1>
+<h2>
             <% results.forEach( result => { %>
                 <% if(result.og_type == "city") {%>
-                    <p>
+                    <a href="<%=  Object.values(result._links.permalink)%>">
                         <%=  result.title %>
                     </p>
                     <a href="<%=  Object.values(result._links.permalink) %>">Click here</a>
             <% } %>
                 <%}) %>
-</h2>                
+</h2>
+</div>
 <hr>
 
+<div class="search-block">
 <h1> Results By Article: </h1>
 <h2>
     <% results.forEach( result => { %>
         <% if(result.og_type == "article") {%>
-            <p>
+            <a href="<%=  Object.values(result._links.permalink)%>">
                 <%=  result.title %>
-            </p>    
+            </a>
+            <br></br>
             <h4>
                 <%=  result.description %>
             </h4>
             <a href="<%=  Object.values(result._links.permalink) %>">Click here</a>
             <% } %>
                 <%}) %>
-</h2>                
+</h2>
+</div>
 
+<a href="/dashboard">Go to dashboard</a>
+<a href="/profile">Go to profile</a>
 
-
+</div>

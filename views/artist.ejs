@@ -1,9 +1,11 @@
+<a href="/profile">Go to profile</a>
+
 <h1> <%= artist.name %> </h1>
 <hr>
 
 <h2>Biography:</h2>
-<h4> 
-    <%= artist.biography %> 
+<h4>
+    <%= artist.biography %>
 </h4>
 
 <h2>Location:</h2>
@@ -32,3 +34,7 @@
 
 <h2>Artworks:</h2>
 <a href="<%= artist._links.artworks.href %>">artworks</a>
+
+<form action="/artist" method="POST">
+<button class="addFav">Add to favourites</button>
+</form>

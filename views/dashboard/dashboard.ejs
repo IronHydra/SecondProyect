@@ -1,4 +1,8 @@
-<a href="/profile">Your profile</a>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9FY9pLHEn8aQa_Heiu1IiEzjKDXH7o7c&libraries=places" async defer></script>
+
+<div class="dashboardAll">
+
+<a class="link" href="/profile">Your profile</a>
 
 <form class="" action="/search" method="get">
     <label for="search">Search:</label>
@@ -7,44 +11,38 @@
 </form>
 
 <h1>Artist</h1>
-<!-- <form action="/artists" method="get" class="bar">
-    <label for="keyword">Artist</label>
-    <input type="text" id="keyword" name="keyword">
-    <button type="submit" id="artist-search">Search</button>
-</form> -->
     <ul>
-        <div class="segment"><a href="/artist/andy-warhol">Andy Warhol</a></div>
-        <div class="segment"><a href="/artist/diego-velazquez">Diego Velázquez</a></div>
-        <div class="segment"><a href="/artist/claude-monet">Claude Monet</a></div>
-        <div class="segment"><a href="/artist/pablo-picasso">Pablo Picasso</a></div>
-        <div class="segment all"><a href="/artists">All artists</a></div>
+        <div class="segment" id="warhol"><a href="/artist/andy-warhol">Andy Warhol</a></div>
+        <div class="segment" id="velazquez"><a href="/artist/diego-velazquez">Diego Velázquez</a></div>
+        <div class="segment" id="monet"><a href="/artist/claude-monet">Claude Monet</a></div>
+        <div class="segment" id="picasso"><a href="/artist/pablo-picasso">Pablo Picasso</a></div>
     </ul>
 
 <h1>Artworks</h1>
 
     <ul>
-        <div class="segment"><a href="/artwork/javier-marin-en-blanco-segunda-version">Javier Marin</a></div>
-        <div class="segment"><a href="/artwork/diego-velazquez-portrait-of-a-knight">Diego Velázquez</a></div>
-        <div class="segment"><a href="/artwork/pablo-picasso-broc-et-verre">Pablo Picasso</a></div>
-        <div class="segment"><a href="/artwork/andy-warhol-four-marilyns-reversal-series-2">Andy Warhol</a></div>
-        <div class="segment all"><a href="/artwork-list">All artists</a></div>
+        <div class="segment" id="marin"><a href="/artwork/javier-marin-en-blanco-segunda-version">Javier Marin</a></div>
+        <div class="segment" id="diego"><a href="/artwork/diego-velazquez-portrait-of-a-knight">Diego Velázquez</a></div>
+        <div class="segment" id="pablo"><a href="/artwork/pablo-picasso-broc-et-verre">Pablo Picasso</a></div>
+        <div class="segment" id="andy"><a href="/artwork/andy-warhol-four-marilyns-reversal-series-2">Andy Warhol</a></div>
     </ul>
 </form>
 
 <h1>Shows</h1>
 
     <ul>
-        <div class="segment"><a href="/shows/4ea19ee97bab1a0001001908">Avenue</a></div>
-        <div class="segment"><a href="/shows/">Mexican</a></div>
-        <div class="segment"><a href="/shows/">German</a></div>
-        <div class="segment"><a href="/shows/">Italian</a></div>
+        <div class="segment" id="paris"><a href="/shows/4ea19ee97bab1a0001001908">Paris</a></div>
+        <div class="segment" id="newYork"><a href="/shows/">New York</a></div>
+        <div class="segment" id="london"><a href="/shows/">London</a></div>
+        <div class="segment" id="berlin"><a href="/shows/">Berlin</a></div>
     </ul>
 </form>
 
 
 <div id=myMap></div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9FY9pLHEn8aQa_Heiu1IiEzjKDXH7o7c&libraries=places" async defer></script>
 <script type="text/javascript" src="javascripts/main.js"></script>
-<a href="/logout">
+<a class="link" href="/logout">
   Log out </a>
+
+</div>
