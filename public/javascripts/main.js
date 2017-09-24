@@ -16,7 +16,7 @@ function startMap() {
   var request = {
     location: madrid,
     radius: '500',
-    query: 'museum'
+    type: ['museum']
   };
 
   service = new google.maps.places.PlacesService(map);

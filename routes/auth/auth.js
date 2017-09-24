@@ -38,10 +38,6 @@ router.post("/signup", (req, res, next) => {
       favouriteArtists: []
     })
       .save()
-      .then(user => res.redirect("/"))
-      .catch(e =>
-        res.render("auth/signup", { message: "Something went wrong" })
-      );
   });
 });
 

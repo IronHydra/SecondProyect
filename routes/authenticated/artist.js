@@ -1,5 +1,6 @@
 const express = require("express");
 const router = require("express").Router();
+const User = require("../../models/User.js");
 var traverson = require("traverson"),
   JsonHalAdapter = require("traverson-hal"),
   xappToken =
@@ -23,15 +24,20 @@ router.get("/artist/:id", (req, res, next) => {
       id: req.params.id
     })
     .getResource(function(error, artist) {
-      console.log(artist)
+      console.log(artist.name)
       res.render("artist", {
-        artist: artist,
+        artist: artist
       })
     });
 });
 
-router.post("/artist",(req, res, next)=>{
-  
+router.post("/saveArtist", (req, res, next)=>{
+  let artistName = Object.values(req.body)[4];
+  req.user.favouriteArtists.push(artistName);
+  console.log(req.user)
+  User.findByIdAndUpdate(req.user.id, req.user)
+  .then(() => res.redirect("/dashboard"))
+  .catch(err => console.log(err))
 })
 
 router.get("/search",(req,res,next)=>{

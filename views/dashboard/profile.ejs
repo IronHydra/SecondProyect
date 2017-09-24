@@ -4,7 +4,12 @@
   <p>
     <%= user.description %>
   </p>
-  <img src="<%= user.image %>"></img>
+  <ul> <% user.favouriteArtists.forEach(artist => { %>
+      <li>
+        <%= artist %>
+      </li>
+      <% }) %>  </ul>
+  <img id="profile-img" src="<%= user.image %>"></img>
   <br></br>
   <a href="/dashboard">Back to dashboard</a>
   <br></br>

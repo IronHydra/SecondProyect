@@ -1,4 +1,5 @@
 <a href="/profile">Go to profile</a>
+<a href="/dashboard">Back to dashboard</a>
 
 <h1> <%= artist.name %> </h1>
 <hr>
@@ -35,6 +36,11 @@
 <h2>Artworks:</h2>
 <a href="<%= artist._links.artworks.href %>">artworks</a>
 
-<form action="/artist" method="POST">
-<button class="addFav">Add to favourites</button>
-</form>
+<button class="addFav" href="/dashboard">Add to favourites</button>
+<script type="text/javascript">
+  var content = <%-JSON.stringify(artist)%>;
+  console.log(content)
+</script>
+<script type="text/javascript" src="/javascripts/saveArtist.js">
+
+</script>

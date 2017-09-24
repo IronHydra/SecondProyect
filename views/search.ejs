@@ -4,7 +4,7 @@
       <% results.forEach( result => { %>
           <% if(result.og_type == "artist") {%>
               <a href="<%=  Object.values(result._links.permalink)%>"> <%=  result.title %> </a>
-              <button>Send to favourites</button>
+              <button class="addFav">Send to favourites</button>
               <br></br>
               <% }%>
               <%}) %>
@@ -61,3 +61,9 @@
 
 <a href="/dashboard">Go to dashboard</a>
 <a href="/profile">Go to profile</a>
+
+<script type="text/javascript">
+  var content = <%-JSON.stringify(results)%>;
+  console.log(content)
+</script>
+<script type="text/javascript" src="/javascripts/saveArtist.js">
