@@ -1,3 +1,3 @@
 module.exports = {
- dbURL: "mongodb://localhost/virtuseum"
+ dbURL: process.env.MONGO_URI
 }

@@ -13,6 +13,10 @@ const MongoStore = require("connect-mongo")(session);
 const multer = require("multer")
 const {dbURL} = require('./config/db');
 
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config()
+}
+
 const index = require('./routes/index');
 const authRoutes = require('./routes/auth/auth');
 const loggedRoutes = require('./routes/authenticated/dashboard');
