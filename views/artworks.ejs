@@ -1,1 +1,18 @@
-<p><%= artwork._embedded.artworks[0].title %> </p>
+<div class="searchAll">
+
+  <a href="/profile">Go to profile</a>
+  <a href="/dashboard">Back to dashboard</a>
+
+  <div class="artwork-block">
+    <div class="artwork-text">
+      <h1><%= artwork._embedded.artworks[0].title %> </h1>
+
+      <h1><%= artwork._embedded.artworks[0].category %> </h1>
+
+      <h1><%= artwork._embedded.artworks[0].medium %> </h1>
+
+      <img src="<%= artwork._embedded.artworks[0]._links.image.href%>" alt="picture"></img>
+    </div>
+  </div>
+
+</div>

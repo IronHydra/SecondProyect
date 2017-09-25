@@ -23,7 +23,7 @@ router.get("/artwork/:id", (req, res, next) => {
     })
     .withTemplateParameters({ id: req.params.id })
     .getResource(function(error, artworks) {
-      console.log(artworks)
+      console.log(artworks._embedded.artworks[0]._links.image.href)
       res.render ("artworks",  {artwork: artworks})
     });
 });

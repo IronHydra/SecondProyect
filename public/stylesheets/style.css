@@ -1,19 +1,17 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-<<<<<<< HEAD
+  <<<<<<< HEAD
   /*background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/10/Night-city-wallpaper-blurry-cityscape-rain-unsharp-blurred.jpg");
   background-size: cover;
   background-repeat: no-repeat*/
-=======
-  padding: 0;
+  =======padding: 0;
   margin: 0;
 }
 
-
-.auth  {
+.auth {
   background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/10/Night-city-wallpaper-blurry-cityscape-rain-unsharp-blurred.jpg");
   background-size: cover;
->>>>>>> b3d45de70e563d086fc2d0c43ae5de195aac7a1d
+  >>>>>>>b3d45de70e563d086fc2d0c43ae5de195aac7a1d
 }
 
 a {
@@ -59,7 +57,7 @@ a {
   margin: 5px;
 }
 
-.bar > .list {
+.bar>.list {
   margin-top: 10px;
 }
 
@@ -76,9 +74,10 @@ a {
   left: 51px;
   top: 60px;
   font-size: 100%;
+  background-color: white;
 }
 
-#warhol{
+#warhol {
   background-image: url("http://www.vomb.com.ar/wp-content/uploads/Andy-Warhol-1426x704.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -150,13 +149,23 @@ a {
   background-repeat: no-repeat;
 }
 
-.search-block {
+.search-block, .artwork-block {
   background-color: white;
   width: 60%;
-  height: 90%;
   position: relative;
   left: 20%;
   opacity: 0.7;
+  border: 2px solid black;
+}
+
+.artwork-block {
+  height: 50%;
+  text-align: center;
+}
+
+.artwork-text {
+  position: relative;
+  top: 110px;
 }
 
 .search-block a {
@@ -170,6 +179,7 @@ a {
   width: 100%;
   height: 100%;
   background-position: center;
+  position: fixed
 }
 
 .link {

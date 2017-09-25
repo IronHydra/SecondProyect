@@ -1,7 +1,7 @@
 <div class="searchAll">
-<div class="search-block">
-  <h1>  Results By Artist: </h1>
-  <h2>
+  <div class="search-block">
+    <h1>  Results By Artist: </h1>
+    <h2>
       <% results.forEach( result => { %>
           <% if(result.og_type == "artist") {%>
               <a href="<%=  Object.values(result._links.permalink)%>"> <%=  result.title %> </a>
@@ -10,12 +10,12 @@
               <% }%>
               <%}) %>
           </h2>
-</div>
-<hr>
+  </div>
+  <hr>
 
-<div class="search-block">
-<h1> Results By Show: </h1>
-<h2>
+  <div class="search-block">
+    <h1> Results By Show: </h1>
+    <h2>
     <% results.forEach( result => { %>
         <% if(result.og_type == "show") {%>
             <p> <%=  result.title %> </p>
@@ -23,12 +23,13 @@
             <% }%>
             <%}) %>
         </h2>
-        <hr>
+    </div>
+    <hr>
 
 
-<div class="search-block">
-<h1> Results By City: </h1>
-<h2>
+    <div class="search-block">
+      <h1> Results By City: </h1>
+      <h2>
             <% results.forEach( result => { %>
                 <% if(result.og_type == "city") {%>
                     <a href="<%=  Object.values(result._links.permalink)%>">
@@ -38,12 +39,12 @@
             <% } %>
                 <%}) %>
 </h2>
-</div>
-<hr>
+    </div>
+    <hr>
 
-<div class="search-block">
-<h1> Results By Article: </h1>
-<h2>
+    <div class="search-block">
+      <h1> Results By Article: </h1>
+      <h2>
     <% results.forEach( result => { %>
         <% if(result.og_type == "article") {%>
             <a href="<%=  Object.values(result._links.permalink)%>">
@@ -57,13 +58,13 @@
             <% } %>
                 <%}) %>
 </h2>
-</div>
+    </div>
 
-<a href="/dashboard">Go to dashboard</a>
-<a href="/profile">Go to profile</a>
+    <a href="/dashboard">Go to dashboard</a>
+    <a href="/profile">Go to profile</a>
 
-<script type="text/javascript">
-  var content = <%-JSON.stringify(results)%>;
-  console.log(content)
-</script>
-<script type="text/javascript" src="/javascripts/saveArtist.js">
+    <script type="text/javascript">
+      var content = <%-JSON.stringify(results)%>;
+      console.log(content)
+    </script>
+    <script type="text/javascript" src="/javascripts/saveArtist.js">
