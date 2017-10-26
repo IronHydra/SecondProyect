@@ -13,9 +13,7 @@ const MongoStore = require("connect-mongo")(session);
 const multer = require("multer")
 const {dbURL} = require('./config/db');
 
-if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config()
-}
+require('dotenv').config()
 
 const index = require('./routes/index');
 const authRoutes = require('./routes/auth/auth');
@@ -24,14 +22,18 @@ const apiArtist = require("./routes/authenticated/artist");
 const apiShows = require("./routes/authenticated/shows");
 const apiArtworks = require("./routes/authenticated/artworks");
 
-
+var app = express();
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
 const mongoose = require("mongoose");
-mongoose.connect(dbURL,{useMongoClient:true})
-        .then(()=> debug("connected to db!"));
+mongoose.connect(dbURL)
+        .then(()=> debug("connected to db!"))
+        .catch(e => {
+          console.log(e);
+          throw e;
+        })
 
-var app = express();
+
 var requested = 0;
 
 // view engine setup
