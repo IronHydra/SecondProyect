@@ -30,7 +30,7 @@ router.post("/signup", (req, res, next) => {
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
 
-    debug("User created");
+    console.log("user created ")
 
     const newUser = new User({
       username,
@@ -38,6 +38,7 @@ router.post("/signup", (req, res, next) => {
       favouriteArtists: []
     })
       .save()
+      .then( () => res.redirect("/login"))
   });
 });
 
